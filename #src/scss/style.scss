@@ -1,0 +1,94 @@
+//МИКСИНЫ
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+//ШРИФТЫ
+@import url(https://fonts.googleapis.com/css?family=Heebo:regular,500,700,900&display=swap);
+@import 'fonts';
+
+//ИКОНОЧНЫЕ ШРИФТЫ
+@import 'icons';
+
+//Шрифт по умолчанию
+$fontFamily: 'Heebo';
+
+//ПЕРЕМЕННЫЕ
+$minWidth: 320px;
+$maxWidth: 1152;
+$maxWidthContainer: 856;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+
+//ОБОЛОЧКА
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+//ОСНОВНАЯ СЕТКА
+._container {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  @media (max-width: $md1 + px) { //ширина меньше или равна
+    max-width: 750px;
+  }
+  @media (max-width: $md2 + px) {
+    max-width: none;
+    padding: 0 10px;
+  }
+}
+
+@import 'header';
+@import 'forms';
+@import 'ui';
+@import 'home';
+@import 'works';
+@import 'footer';
+@import 'blog';
+@import 'article';
+
+//ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ
+@import 'reset';
+body {
+  font-family: $fontFamily;
+  color: #21243D;
+}
+
+//ОСНОВНОЙ БЛОК
+.page {
+  padding: 90px 0 0 0;
+  flex: 1 1 auto;
+  @media (max-width: $md3+px) {
+    padding: 30px 0 0 0;
+  }
+}
+
+//ИКОНКИ СОЦ. СЕТЕЙ
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__item {
+    margin: 0 17px;
+    font-size: 30px;
+    color: inherit;
+    transition: color 0.3s ease 0s;
+    @media (min-width: $md2+px) {
+      &:hover {
+        color: #ff6464;
+      }
+    }
+  }
+}

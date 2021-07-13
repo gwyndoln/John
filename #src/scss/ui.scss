@@ -1,0 +1,45 @@
+//ОСНОВНОЙ БЛОК
+.title {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 60 / 44 * 100%;
+  color: #21243D;
+}
+.text {
+  font-size: 16px;
+  line-height: 23 / 16 * 100%;
+  color: #21243D;
+}
+.title-posts {
+  font-size: 22px;
+  @media (max-width: $md3+px) {
+    text-align: center;
+    font-size: 18px;
+  }
+}
+
+//IBG
+._ibg {
+  position: relative;
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+body.ie {
+  ._ibg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  ._ibg img {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
